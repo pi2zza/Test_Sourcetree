@@ -1,0 +1,52 @@
+COMBATMUSICMANAGER
+
+
+    int numOfEnemy;
+    public void addNewEnemy()
+    {
+        numOfEnemy++;
+
+        if (numOfEnemy > 0)
+        {
+            AkSoundEngine.SetState("Combat", "Combat_Yes");
+        }
+        Debug.Log(numOfEnemy);
+    }   
+    public void deleteEnemy()
+    {
+        numOfEnemy--;
+        //if (numOfEnemy < 0)
+        //{
+        //   numOfEnemy = 0;
+        //}
+        if (numOfEnemy < 1)
+        {
+            AkSoundEngine.SetState("Combat", "Combat_No");
+        }
+        Debug.Log(numOfEnemy);
+    }
+    private void Update()
+    {
+         
+    }
+
+
+CHOMPERBEHAVIOR
+
+if (registeredAudioManager == false)
+            {
+                audioManager.addNewEnemy(); 
+                registeredAudioManager = true;
+                Debug.Log("StartPursuit");
+            }
+
+
+
+  if (registeredAudioManager == true)
+            {
+                audioManager.deleteEnemy();
+                registeredAudioManager = false;
+                Debug.Log("Enemy unware");
+            }
+
+bruh
